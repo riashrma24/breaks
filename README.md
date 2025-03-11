@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Creation steps : 
+
+## Front end
+1. Create a folder with project name and open it with vs code(or with any IDE of your choice)
+2. In the terminal run, npx create-react-app
+3. After all the dependencies are installed, run npm start
+4. For adding additional dependencies, use npm(mui, mui icons, tailwind css, react router dom)
+5. Remove the boiler plate code from App.js and start the react application
+6. Inside src folder, create Components folder, and inside it create Components for HomePage, Authentication and Navigation
+7. 
+8. 
+
+# Technologies used : 
+1. React
+2. Redux
+3. Formik
+4. mui
+5. springboot
+6. mysql
+7. spring security 3
+8. jwt
+9. 
