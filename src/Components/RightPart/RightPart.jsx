@@ -3,12 +3,17 @@ import SearchIcon from '@mui/icons-material/Search'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import SubscriptionModal from '../Subscription/SubscriptionModal';
 
 const RightPart = () => {
     const handleChangeTheme = () => {
         console.log("change")
     }
 
+    const [openSubscriptionModel, setOpenSubscriptionModel] = React.useState(false);
+    const handleOpenSubscriptionModel = () => setOpenSubscriptionModel(true);
+    const handleCloseSubscriptionModel = () => setOpenSubscriptionModel(false);
+    const [plan, setPlan] = React.useState("Anually")
 
     return (
         <div className='py-5 sticky top-0'>
@@ -26,7 +31,7 @@ const RightPart = () => {
             <section className='my-5'>
                 <h1 className='text-xl font-bold'>Become a mentor!</h1>
                 <h1 className='font-bold my-2'>Subscribe to unlock more features</h1>
-                <Button variant='contained' sx={{ padding: "10px", paddingX: "20px", borderRadius: "25px", bgcolor: "#F44336" }}>Get verified as a mentor</Button>
+                <Button variant='contained' sx={{ padding: "10px", paddingX: "20px", borderRadius: "25px", bgcolor: "#F44336", '&:hover': { bgcolor: '#9C2B23' } }} onClick={handleOpenSubscriptionModel}>Get verified as a mentor</Button>
             </section>
             <section className='mt-7 space-y-5'>
                 <h1 className='font-bold text-xl py-1'>Geeky latest news!</h1>
@@ -44,10 +49,14 @@ const RightPart = () => {
                     <MoreHorizIcon />
                 </div>)}
 
-            </section >
+            </section>
+
+            <section>
+                <SubscriptionModal open={openSubscriptionModel} handleClose={handleCloseSubscriptionModel} />
+            </section>
 
 
-        </div >
+        </div>
     )
 }
 

@@ -12,11 +12,20 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ReplyModal from '../HomeSection/ReplyModal';
+import { useState } from 'react';
+
 
 const PostingCard = () => {
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+
+    const [openReplyModal, setOpenReplyModal] = useState(false)
+    const handleOpenReplyModel = () => setOpenReplyModal(true)
+    const handleCloseReplyModal = () => setOpenReplyModal(false)
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -31,10 +40,7 @@ const PostingCard = () => {
         console.log("edit post")
         handleClose()
     }
-    const handleOpenReplyModel = () => {
-        console.log("handle open")
-        handleClose()
-    }
+
     const handleCreateReshare = () => {
         console.log("re share")
         handleClose()
@@ -46,7 +52,7 @@ const PostingCard = () => {
 
 
     return (
-        <div className=''>
+        <React.Fragment>
             {/* <div className='flex items-center font-semibold text-gray-700 py-2'>
                 <RepeatIcon />
                 <p></p>
@@ -62,7 +68,7 @@ const PostingCard = () => {
                     <div className='flex justify-between items-center'>
                         <div className='flex cursor-pointer items-center space-x-2'>
 
-                            <span className='font-semibold'>Regina Georage</span>
+                            <span className='font-semibold'>Regina George</span>
                             <span className='text-gray-600'>@regina29</span>
                             <Verified />
 
@@ -94,7 +100,7 @@ const PostingCard = () => {
                     </div>
 
                     <div className='mt-2 '>
-                        <div className='cursor-pointer'>
+                        <div onClick={() => navigate('/posting/${3}')} className='cursor-pointer'>
                             <p className='mb-2 p-0'>Hello peeps!</p>
                             <img className='w-[28rem] border border-gray-400 p-5 rounded-md' src='https://i.pinimg.com/control/236x/90/0d/cd/900dcdbf7febe085ce181ffb8ab9757f.jpg' alt='an image' />
                         </div>
@@ -128,7 +134,11 @@ const PostingCard = () => {
                 </div>
             </div>
 
-        </div>
+            <section>
+                <ReplyModal open={openReplyModal} handleClose={handleCloseReplyModal} />
+            </section>
+
+        </React.Fragment>
     )
 }
 
